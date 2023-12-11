@@ -1,13 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Main graphic container -->
+  <div class="graphic-container">
+    <!-- Top section with cloud and building graphics -->
+    <div class="top-graphics">
+      <!-- SVGs or images representing the top part of the design -->
+    </div>
+
+    <!-- Central content with title and introductory text -->
+    <div class="central-content">
+      <h1>Ai SAS Solutions</h1>
+      <p>Working with renowned brands to build impactful AI integrated marketing solutions.</p>
+      <!-- Include any additional paragraphs, icons, or buttons as needed -->
+    </div>
+
+    <!-- Bottom navigation icons with labels -->
+    <div class="navigation-icons">
+  <!-- Portfolio icon and label -->
+  <div class="icon portfolio">
+    <ion-icon name="briefcase-outline"></ion-icon>
+    <span>Portfolio</span>
+  </div>
+  <!-- Blog icon and label -->
+  <div class="icon blog">
+    <ion-icon name="newspaper-outline"></ion-icon>
+    <span>Blog</span>
+  </div>
+  <!-- Services icon and label -->
+  <div class="icon services">
+    <ion-icon name="build-outline"></ion-icon>
+    <span>Services</span>
+  </div>
+  <!-- Repeat for other navigation icons as needed -->
+</div>
+
+  </div>
 </ion-content>
