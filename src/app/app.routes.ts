@@ -11,35 +11,35 @@ export const routes: Routes = [
     loadComponent: () => import('./admin/admin.page').then( m => m.AdminPage)
   },
   {
-    path: 'client-management',
+    path: 'admin/client-management',
     loadComponent: () => import('./admin/client-management/client-management.page').then( m => m.ClientManagementPage)
   },
   {
-    path: 'project-management',
+    path: 'admin/project-management',
     loadComponent: () => import('./admin/project-management/project-management.page').then( m => m.ProjectManagementPage)
   },
   {
-    path: 'content-management',
+    path: 'admin/content-management',
     loadComponent: () => import('./admin/content-management/content-management.page').then( m => m.ContentManagementPage)
   },
   {
-    path: 'analytics-and-reporting',
+    path: 'admin/analytics-and-reporting',
     loadComponent: () => import('./admin/analytics-and-reporting/analytics-and-reporting.page').then( m => m.AnalyticsAndReportingPage)
   },
   {
-    path: 'billing-and-invoicing',
+    path: 'admin/billing-and-invoicing',
     loadComponent: () => import('./admin/billing-and-invoicing/billing-and-invoicing.page').then( m => m.BillingAndInvoicingPage)
   },
   {
-    path: 'user-and-role-management',
+    path: 'admin/user-and-role-management',
     loadComponent: () => import('./admin/user-and-role-management/user-and-role-management.page').then( m => m.UserAndRoleManagementPage)
   },
   {
-    path: 'service-catalog-management',
+    path: 'admin/service-catalog-management',
     loadComponent: () => import('./admin/service-catalog-management/service-catalog-management.page').then( m => m.ServiceCatalogManagementPage)
   },
   {
-    path: 'marketing-tools',
+    path: 'admin/marketing-tools',
     loadComponent: () => import('./admin/marketing-tools/marketing-tools.page').then( m => m.MarketingToolsPage)
   },
   {
@@ -67,15 +67,15 @@ export const routes: Routes = [
     loadComponent: () => import('./dashboard/dashboard.page').then( m => m.DashboardPage)
   },
   {
-    path: 'project-management',
+    path: 'dashboard/project-management',
     loadComponent: () => import('./dashboard/project-management/project-management.page').then( m => m.ProjectManagementPage)
   },
   {
-    path: 'billing-and-subscription-management',
+    path: 'dashboard/billing-and-subscription-management',
     loadComponent: () => import('./dashboard/billing-and-subscription-management/billing-and-subscription-management.page').then( m => m.BillingAndSubscriptionManagementPage)
   },
   {
-    path: 'support',
+    path: 'dashboard/support',
     loadComponent: () => import('./dashboard/support/support.page').then( m => m.SupportPage)
   },
   {
