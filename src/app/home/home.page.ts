@@ -15,7 +15,7 @@ import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutlin
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class HomePage implements OnInit {
-
+  public title = ""
   constructor() { 
     
     addIcons({ chatbubblesOutline, chatbubblesSharp, colorPaletteOutline, colorPaletteSharp, paperPlaneOutline, bookOutline, bookSharp, briefcaseOutline, codeSlashOutline, codeSlashSharp, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, scanCircle, backspace, refreshCircle, closeCircleOutline, addCircleOutline, newspaperOutline, buildOutline });
