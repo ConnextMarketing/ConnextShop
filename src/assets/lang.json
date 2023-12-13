@@ -1,21 +1,20 @@
 {
   "title": {
-    "eng": "Connext Marketing",
+    "eng": "Connext Marketing"
   },
   "tagline": {
-    "eng": "We help businesses get connected to the future.",
+    "eng": "We help businesses get connected to the future."
   },
   "taglineDescription": {
-    "eng": "Working with renowned brands to build impactful AI integrated business workflow and marketing solutions",
+    "eng": "Working with renowned brands to build impactful AI integrated business workflow and marketing solutions"
   },
   "portfolio": {
-    "eng": "Portfolio",
+    "eng": "Portfolio"
   },
   "blog": {
-    "eng": "Blog",
+    "eng": "Blog"
   },
   "services": {
-    "eng": "Services",
-  },
-  
+    "eng": "Services"
+  }
 }
