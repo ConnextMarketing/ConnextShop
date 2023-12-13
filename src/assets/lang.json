@@ -1,6 +1,12 @@
 {
-  "title": {
-    "eng": "Connext Marketing"
+  "blog": {
+    "eng": "Blog"
+  },
+  "portfolio": {
+    "eng": "Portfolio"
+  },
+  "services": {
+    "eng": "Services"
   },
   "tagline": {
     "eng": "We help businesses get connected to the future."
@@ -8,13 +14,7 @@
   "taglineDescription": {
     "eng": "Working with renowned brands to build impactful AI integrated business workflow and marketing solutions"
   },
-  "portfolio": {
-    "eng": "Portfolio"
-  },
-  "blog": {
-    "eng": "Blog"
-  },
-  "services": {
-    "eng": "Services"
+  "title": {
+    "eng": "Connext Marketing"
   }
 }
