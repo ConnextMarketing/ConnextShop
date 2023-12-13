@@ -24,6 +24,11 @@ export class AppComponent implements OnInit {
   
   langConfig!: LangConfig;
   currentLanguage: string = 'eng'; // this could be dynamically set
+  public title!: string;
+  public tagline!: string;
+  public account!: string;
+  public signIn!: string;
+  public signOut!: string;
   
   public signedIn = false;
   
