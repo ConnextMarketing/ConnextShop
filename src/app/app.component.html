@@ -16,13 +16,13 @@
 
         <ion-list id="labels-list">
           <ion-list-header>Account</ion-list-header>
-          <ng-template *ngIf="!signedIn; else signOut">
+          <ng-template *ngIf="!signedIn; else elseSignOut">
             <ion-item lines="none">
             <ion-icon aria-hidden="true" slot="start" ios="log-in-outline" md="log-in-sharp"></ion-icon>
             <ion-label>{{ signIn }}</ion-label>
           </ion-item>
           </ng-template>
-          <ng-template #signOut>
+          <ng-template #elseSignOut>
             <ion-item lines="none">
             <ion-icon aria-hidden="true" slot="start" ios="log-in-outline" md="log-in-sharp"></ion-icon>
             <ion-label>{{ signOut }}</ion-label>
