@@ -6,6 +6,12 @@ import { addIcons } from 'ionicons';
 import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, buildOutline, buildSharp, folderOpenOutline, folderOpenSharp, eyeOutline, eyeSharp, callOutline, callSharp } from 'ionicons/icons';
 import { LangService, LangConfig } from './services/lang.service';
 
+interface AppPage {
+  title: string;
+  url: string;
+  icon: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -16,17 +22,12 @@ import { LangService, LangConfig } from './services/lang.service';
 })
 export class AppComponent implements OnInit {
   
-  langConfig: LangConfig;
+  langConfig!: LangConfig;
   currentLanguage: string = 'eng'; // this could be dynamically set
   
   public signedIn = false;
   
-  public appPages = [
-    { title: services, url: '/services', icon: 'build' },
-    { title: caseStudies, url: '/portfolio', icon: 'folder-open' },
-    { title: insights, url: '/blog', icon: 'eye' },
-    { title: contact, url: '/contact', icon: 'call' },
-  ];
+  public appPages!: AppPage[];
   
   constructor(private langService: LangService) {
     addIcons({ mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, buildOutline, buildSharp, folderOpenOutline, folderOpenSharp, eyeOutline, eyeSharp, callOutline, callSharp });
@@ -34,9 +35,16 @@ export class AppComponent implements OnInit {
   
   ngOnInit() {
     this.langService.getEnvironment().subscribe(config => {
-      this.environmentConfig = config;
-      console.log(this.environmentConfig.title[this.currentLanguage]); // Access the 'title' for the current language
-      // You can now access other properties in a similar way
+      this.langConfig = config;
+      
+      
+      this.appPages = [
+    { title: this.langConfig.services[this.currentLanguage], url: '/services', icon: 'build' },
+    { title: this.langConfig.portfolio[this.currentLanguage], url: '/portfolio', icon: 'folder-open' },
+    { title: this.langConfig.blog[this.currentLanguage], url: '/blog', icon: 'eye' },
+    { title: this.langConfig.contact[this.currentLanguage], url: '/contact', icon: 'call' },
+  ];
+      
     });
   }
 
