@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class LangService {
   
-  private environmentUrl = 'assets/environment.json'; // Path to your JSON file
+  private environmentUrl = 'assets/lang.json'; // Path to your JSON file
   
   constructor(private http: HttpClient) { }
   
