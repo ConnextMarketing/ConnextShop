@@ -21,7 +21,7 @@ export class LangService {
   constructor(private http: HttpClient) { }
   
   getEnvironment(): Observable<EnvironmentConfig> {
-    return this.http.get(this.environmentUrl);
+    return this.http.get<EnvironmentConfig>(this.environmentUrl);
   }
   
 }
