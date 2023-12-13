@@ -1,29 +1,23 @@
 {
-  "account": {
-    "eng": "Account"
-  },
-  "blog": {
-    "eng": "Blog"
-  },
-  "portfolio": {
-    "eng": "Portfolio"
-  },
-  "services": {
-    "eng": "Services"
-  },
-  "signIn": {
-    "eng": "Sign In"
-  },
-  "signOut": {
-    "eng": "Sign Out"
-  },
-  "tagline": {
-    "eng": "We help businesses get connected to the future."
-  },
-  "taglineDescription": {
-    "eng": "Working with renowned brands to build impactful AI integrated business workflow and marketing solutions"
-  },
-  "title": {
-    "eng": "Connext Marketing"
-  }
+  "account": {"eng": "Account", "sp": "Cuenta", "fr": "Compte"},
+  "analyticsAndReporting": {"eng": "Analytics and Reporting", "sp": "Análisis y Reportes", "fr": "Analytique et Rapports"},
+  "billingAndInvoicing": {"eng": "Billing and Invoicing", "sp": "Facturación y Cobros", "fr": "Facturation et Factures"},
+  "billingAndSubscriptionManagement": {"eng": "Billing and Subscription Management", "sp": "Gestión de Facturación y Suscripciones", "fr": "Gestion de Facturation et d'Abonnement"},
+  "blog": {"eng": "Blog", "sp": "Blog", "fr": "Blog"},
+  "clientManagement": {"eng": "Client Management", "sp": "Gestión de Clientes", "fr": "Gestion des Clients"},
+  "contentManagement": {"eng": "Content Management", "sp": "Gestión de Contenido", "fr": "Gestion de Contenu"},
+  "customizedContent": {"eng": "Customized Content", "sp": "Contenido Personalizado", "fr": "Contenu Personnalisé"},
+  "dashboard": {"eng": "Dashboard", "sp": "Panel de Control", "fr": "Tableau de Bord"},
+  "marketingToolsIntegration": {"eng": "Marketing Tools Integration", "sp": "Integración de Herramientas de Marketing", "fr": "Intégration d'Outils de Marketing"},
+  "portfolio": {"eng": "Portfolio", "sp": "Portafolio", "fr": "Portefeuille"},
+  "projectManagement": {"eng": "Project Management", "sp": "Gestión de Proyectos", "fr": "Gestion de Projets"},
+  "serviceCatalogManagement": {"eng": "Service Catalog Management", "sp": "Gestión del Catálogo de Servicios", "fr": "Gestion du Catalogue de Services"},
+  "services": {"eng": "Services", "sp": "Servicios", "fr": "Services"},
+  "signIn": {"eng": "Sign In", "sp": "Iniciar Sesión", "fr": "Se Connecter"},
+  "signOut": {"eng": "Sign Out", "sp": "Cerrar Sesión", "fr": "Se Déconnecter"},
+  "supportAndContact": {"eng": "Support and Contact", "sp": "Soporte y Contacto", "fr": "Support et Contact"},
+  "tagline": {"eng": "We help businesses get connected to the future.", "sp": "Ayudamos a las empresas a conectarse con el futuro.", "fr": "Nous aidons les entreprises à se connecter à l'avenir."},
+  "taglineDescription": {"eng": "Working with renowned brands to build impactful AI integrated business workflow and marketing solutions", "sp": "Trabajando con marcas reconocidas para construir soluciones de marketing y flujo de trabajo de negocios integrados con IA impactantes.", "fr": "Travaillant avec des marques renommées pour construire des solutions de workflow et de marketing d'affaires intégrées à l'IA impactantes"},
+  "title": {"eng": "Connext Marketing", "sp": "Connext Marketing", "fr": "Connext Marketing"},
+  "userAndRolesManagement": {"eng": "User and Roles Management", "sp": "Gestión de Usuarios y Roles", "fr": "Gestion des Utilisateurs et des Rôles"}
 }
