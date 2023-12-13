@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
     { title: caseStudies, url: '/portfolio', icon: 'folder-open' },
     { title: insights, url: '/blog', icon: 'eye' },
     { title: contact, url: '/contact', icon: 'call' },
-    
   ];
   
   constructor(private langService: LangService) {
