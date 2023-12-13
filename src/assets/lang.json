@@ -5,7 +5,7 @@
   "billingAndSubscriptionManagement": {"eng": "Billing and Subscription Management", "sp": "Gestión de Facturación y Suscripciones", "fr": "Gestion de Facturation et d'Abonnement"},
   "blog": {"eng": "Blog", "sp": "Blog", "fr": "Blog"},
   "clientManagement": {"eng": "Client Management", "sp": "Gestión de Clientes", "fr": "Gestion des Clients"},
-  "contact": { "eng": "Contact", "sp": "Contacto", "fr": "Contact", "de": "Kontakt", "pt": "Contato" },
+  "contact": {"eng": "Contact", "sp": "Contacto", "fr": "Contact", "de": "Kontakt", "pt": "Contato"},
   "contentManagement": {"eng": "Content Management", "sp": "Gestión de Contenido", "fr": "Gestion de Contenu"},
   "customizedContent": {"eng": "Customized Content", "sp": "Contenido Personalizado", "fr": "Contenu Personnalisé"},
   "dashboard": {"eng": "Dashboard", "sp": "Panel de Control", "fr": "Tableau de Bord"},
