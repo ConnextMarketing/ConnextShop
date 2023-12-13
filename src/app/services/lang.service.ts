@@ -5,6 +5,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+export interface EnvironmentConfig {
+  title: { [key: string]: string };
+  tagline: { [key: string]: string };
+  taglineDescription: { [key: string]: string };
+  portfolio: { [key: string]: string };
+  blog: { [key: string]: string };
+  services: { [key: string]: string };
+}
+
 export class LangService {
   
   private environmentUrl = 'assets/lang.json'; // Path to your JSON file
