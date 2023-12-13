@@ -28,10 +28,10 @@ export class AppComponent {
   contact = "";
   
   public appPages = [
-    { title: services, url: '/services', icon: 'mail' },
-    { title: caseStudies, url: '/portfolio', icon: 'paper-plane' },
-    { title: insights, url: '/blog', icon: 'heart' },
-    { title: contact, url: '/contact', icon: 'archive' },
+    { title: services, url: '/services', icon: 'build' },
+    { title: caseStudies, url: '/portfolio', icon: 'folder-open' },
+    { title: insights, url: '/blog', icon: 'eye' },
+    { title: contact, url: '/contact', icon: 'call' },
     
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
