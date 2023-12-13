@@ -12,6 +12,7 @@ import { LangService } from './services/lang.service';
   styleUrls: ['app.component.scss'],
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet],
+  providers: [LangService]
 })
 export class AppComponent implements OnInit {
   
