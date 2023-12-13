@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface EnvironmentConfig {
+export interface LangConfig {
   title: { [key: string]: string };
   tagline: { [key: string]: string };
   taglineDescription: { [key: string]: string };
@@ -20,8 +20,8 @@ export class LangService {
   
   constructor(private http: HttpClient) { }
   
-  getEnvironment(): Observable<EnvironmentConfig> {
-    return this.http.get<EnvironmentConfig>(this.environmentUrl);
+  getEnvironment(): Observable<LangConfig> {
+    return this.http.get<LangConfig>(this.environmentUrl);
   }
   
 }
