@@ -1,4 +1,7 @@
 {
+  "account": {
+    "eng": "Account"
+  },
   "blog": {
     "eng": "Blog"
   },
@@ -7,6 +10,12 @@
   },
   "services": {
     "eng": "Services"
+  },
+  "signIn": {
+    "eng": "Sign In"
+  },
+  "signOut": {
+    "eng": "Sign Out"
   },
   "tagline": {
     "eng": "We help businesses get connected to the future."
