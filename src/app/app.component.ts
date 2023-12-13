@@ -36,8 +36,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.langService.getEnvironment().subscribe(config => {
       this.langConfig = config;
-      
-      
       this.appPages = [
     { title: this.langConfig.services[this.currentLanguage], url: '/services', icon: 'build' },
     { title: this.langConfig.portfolio[this.currentLanguage], url: '/portfolio', icon: 'folder-open' },
