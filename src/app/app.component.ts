@@ -57,6 +57,8 @@ export class AppComponent implements OnInit {
       this.account = getPageTitle('account');
       this.signIn = getPageTitle('signIn');
       this.signOut = getPageTitle('signOut');
+      
+      alert(this.title)
     });
   }
 
