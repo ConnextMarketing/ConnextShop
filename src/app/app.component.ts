@@ -39,27 +39,34 @@ export class AppComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.langService.getEnvironment().subscribe(config => {
-      this.langConfig = config;
+    this.langService.getEnvironment().subscribe(
+  config => {
+    this.langConfig = config;
 
-      // Ensure that the properties exist in langConfig before accessing them
-      const getPageTitle = (key: string) => this.langConfig[key] ? this.langConfig[key][this.currentLanguage] : 'Unknown';
+    // Ensure that the properties exist in langConfig before accessing them
+    const getPageTitle = (key: string) => this.langConfig[key] ? this.langConfig[key][this.currentLanguage] : 'Unknown';
 
-      this.appPages = [
-        { title: getPageTitle('services'), url: '/services', icon: 'build' },
-        { title: getPageTitle('portfolio'), url: '/portfolio', icon: 'folder-open' },
-        { title: getPageTitle('blog'), url: '/blog', icon: 'eye' },
-        { title: getPageTitle('contact'), url: '/contact', icon: 'call' },
-      ];
+    this.appPages = [
+      { title: getPageTitle('services'), url: '/services', icon: 'build' },
+      { title: getPageTitle('portfolio'), url: '/portfolio', icon: 'folder-open' },
+      { title: getPageTitle('blog'), url: '/blog', icon: 'eye' },
+      { title: getPageTitle('contact'), url: '/contact', icon: 'call' },
+    ];
   
-      this.title = getPageTitle('title');
-      this.tagline = getPageTitle('tagline');
-      this.account = getPageTitle('account');
-      this.signIn = getPageTitle('signIn');
-      this.signOut = getPageTitle('signOut');
-      
-      alert(this.title)
-    });
+    this.title = getPageTitle('title');
+    this.tagline = getPageTitle('tagline');
+    this.account = getPageTitle('account');
+    this.signIn = getPageTitle('signIn');
+    this.signOut = getPageTitle('signOut');
+    
+    alert(this.title)
+  },
+  error => {
+    // Handle the error and alert the error message
+    alert('Error: ' + error.message);
+  }
+);
+
   }
 
   setLanguage(lang: string) {
