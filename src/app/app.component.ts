@@ -41,18 +41,22 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.langService.getEnvironment().subscribe(config => {
       this.langConfig = config;
+
+      // Ensure that the properties exist in langConfig before accessing them
+      const getPageTitle = (key: string) => this.langConfig[key] ? this.langConfig[key][this.currentLanguage] : 'Unknown';
+
       this.appPages = [
-    { title: this.langConfig.services[this.currentLanguage], url: '/services', icon: 'build' },
-    { title: this.langConfig.portfolio[this.currentLanguage], url: '/portfolio', icon: 'folder-open' },
-    { title: this.langConfig.blog[this.currentLanguage], url: '/blog', icon: 'eye' },
-    { title: this.langConfig.contact[this.currentLanguage], url: '/contact', icon: 'call' },
-  ];
+        { title: getPageTitle('services'), url: '/services', icon: 'build' },
+        { title: getPageTitle('portfolio'), url: '/portfolio', icon: 'folder-open' },
+        { title: getPageTitle('blog'), url: '/blog', icon: 'eye' },
+        { title: getPageTitle('contact'), url: '/contact', icon: 'call' },
+      ];
   
-  this.title = this.langConfig.title[this.currentLanguage];
-  this.tagline = this.langConfig.tagline[this.currentLanguage];
-  this.account = this.langConfig.account[this.currentLanguage];
-  this.signIn = this.langConfig.signIn[this.currentLanguage];
-  this.signOut = this.langConfig.signOut[this.currentLanguage];
+      this.title = getPageTitle('title');
+      this.tagline = getPageTitle('tagline');
+      this.account = getPageTitle('account');
+      this.signIn = getPageTitle('signIn');
+      this.signOut = getPageTitle('signOut');
     });
   }
 
