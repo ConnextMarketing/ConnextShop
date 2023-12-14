@@ -2,13 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 export interface LangConfig {
-  title: { [key: string]: string };
-  tagline: { [key: string]: string };
-  taglineDescription: { [key: string]: string };
-  portfolio: { [key: string]: string };
-  blog: { [key: string]: string };
-  services: { [key: string]: string };
+  [property: string]: { [key: string]: string };
 }
 
 @Injectable({
