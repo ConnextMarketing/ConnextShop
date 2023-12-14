@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
   }
   
   ngOnInit() {
+    alert("Initiated!");
     this.langService.getEnvironment().subscribe(
   config => {
     this.langConfig = config;
