@@ -47,6 +47,12 @@ export class AppComponent implements OnInit {
     { title: this.langConfig.blog[this.currentLanguage], url: '/blog', icon: 'eye' },
     { title: this.langConfig.contact[this.currentLanguage], url: '/contact', icon: 'call' },
   ];
+  
+  this.title = this.langConfig.title[this.currentLanguage];
+  this.tagline = this.langConfig.tagline[this.currentLanguage];
+  this.account = this.langConfig.account[this.currentLanguage];
+  this.signIn = this.langConfig.signIn[this.currentLanguage];
+  this.signOut = this.langConfig.signOut[this.currentLanguage];
     });
   }
 
