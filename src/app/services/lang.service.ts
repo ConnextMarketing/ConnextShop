@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
-export interface LangConfig {
-  [property: string]: { [key: string]: string };
-}
-
 @Injectable({
   providedIn: 'root'
 })
