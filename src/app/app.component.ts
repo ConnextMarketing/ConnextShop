@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
@@ -34,7 +34,8 @@ export class AppComponent implements OnInit {
   
   public appPages!: AppPage[];
   
-  constructor(private langService: LangService) {
+  constructor(private langService: LangService,
+    private changeDetectorRef: ChangeDetectorRef) {
     addIcons({ mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, buildOutline, buildSharp, folderOpenOutline, folderOpenSharp, eyeOutline, eyeSharp, callOutline, callSharp });
   }
   
@@ -59,11 +60,12 @@ export class AppComponent implements OnInit {
     this.account = getPageTitle('account');
     this.signIn = getPageTitle('signIn');
     this.signOut = getPageTitle('signOut');
-    
+    this.changeDetectorRef.detectChanges();
     alert(this.title)
   },
   error => {
     // Handle the error and alert the error message
+    this.changeDetectorRef.detectChanges();
     alert('Error: ' + error.message);
   }
 );
