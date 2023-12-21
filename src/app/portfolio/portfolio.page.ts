@@ -18,7 +18,10 @@ export class PortfolioPage implements OnInit {
   langConfig!: LangConfig;
   currentLanguage: string = 'eng'; // this could be dynamically set
   
-  constructor() { }
+  constructor(
+    private langService: LangService,
+    private changeDetectorRef: ChangeDetectorRef
+    ) { }
 
   ngOnInit() {
   }
