@@ -10,7 +10,8 @@ import { LangConfig } from '../interfaces/lang-config';
   templateUrl: './portfolio.page.html',
   styleUrls: ['./portfolio.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule],
+  providers: [LangService]
 })
 export class PortfolioPage implements OnInit {
 
