@@ -10,9 +10,14 @@ import { LangConfig } from '../interfaces/lang-config';
   templateUrl: './blog.page.html',
   styleUrls: ['./blog.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule],
+  providers: [LangService]
 })
 export class BlogPage implements OnInit {
+  
+  langConfig!: LangConfig;
+  currentLanguage: string = 'eng'; // this could be dynamically set
+  public title!: string;
 
   constructor() { }
 
