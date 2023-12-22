@@ -64,7 +64,6 @@ export class AppComponent implements OnInit {
     this.signIn = getPageTitle('signIn');
     this.signOut = getPageTitle('signOut');
     this.changeDetectorRef.detectChanges();
-    alert(this.title)
   },
   error => {
     // Handle the error and alert the error message
