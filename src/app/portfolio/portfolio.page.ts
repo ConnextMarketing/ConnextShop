@@ -33,7 +33,7 @@ export class PortfolioPage implements OnInit {
     const getTranslation = (key: string) => this.langConfig[key] ? this.langConfig[key][this.currentLanguage] : 'Unknown';
 
   
-    this.title = getPageTitle('portfolio');
+    this.title = getTranslation ('portfolio');
     
   },
   error => {
