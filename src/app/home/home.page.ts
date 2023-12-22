@@ -26,6 +26,9 @@ export class HomePage implements OnInit {
   public blog!: string;
   public services!: string;
   
+  langConfig!: LangConfig;
+  currentLanguage: string = 'eng'; // this could be dynamically set
+  
   constructor(
     private langService: LangService,
     private changeDetectorRef: ChangeDetectorRef 
