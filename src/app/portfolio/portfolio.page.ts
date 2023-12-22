@@ -31,10 +31,7 @@ export class PortfolioPage implements OnInit {
 
     // Ensure that the properties exist in langConfig before accessing them
     const getTranslation = (key: string) => this.langConfig[key] ? this.langConfig[key][this.currentLanguage] : 'Unknown';
-
-  
     this.title = getTranslation('portfolio');
-    
   },
   error => {
     // Handle the error and alert the error message
