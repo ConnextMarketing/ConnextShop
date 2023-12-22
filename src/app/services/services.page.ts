@@ -10,7 +10,8 @@ import { LangConfig } from '../interfaces/lang-config';
   templateUrl: './services.page.html',
   styleUrls: ['./services.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule],
+  providers: [LangService]
 })
 export class ServicesPage implements OnInit {
 
