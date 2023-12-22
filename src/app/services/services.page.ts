@@ -14,6 +14,10 @@ import { LangConfig } from '../interfaces/lang-config';
 })
 export class ServicesPage implements OnInit {
 
+langConfig!: LangConfig;
+  currentLanguage: string = 'eng'; // this could be dynamically set
+  public title!: string;
+  
   constructor(
     private langService: LangService,
     private changeDetectorRef: changeDetectorRef
