@@ -40,7 +40,5 @@ export class PortfolioPage implements OnInit {
     alert('Error: ' + error.message);
   }
 );
-
   }
-
 }
