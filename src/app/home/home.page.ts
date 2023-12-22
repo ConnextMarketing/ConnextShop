@@ -41,18 +41,6 @@ export class HomePage implements OnInit {
     this.langConfig = config;
     // Ensure that the properties exist in langConfig before accessing them
     
-    /*
-    
-    
-    public title!: string;
-  public tagline!: string;
-  public taglineDescription!: string;
-  public portfolio!: string;
-  public blog!: string;
-  public services!: string;
-    
-    
-    */
     const getTranslation = (key: string) => this.langConfig[key] ? this.langConfig[key][this.currentLanguage] : 'Unknown';
     this.title = getTranslation('title');
     this.tagline = getTranslation('tagline');
