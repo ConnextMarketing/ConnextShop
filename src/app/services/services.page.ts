@@ -30,7 +30,7 @@ export class ServicesPage implements OnInit {
     this.langConfig = config;
     // Ensure that the properties exist in langConfig before accessing them
     const getTranslation = (key: string) => this.langConfig[key] ? this.langConfig[key][this.currentLanguage] : 'Unknown';
-    this.title = getTranslation('portfolio');
+    this.title = getTranslation('services');
     this.changeDetectorRef.detectChanges();
   },
   error => {
