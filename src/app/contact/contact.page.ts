@@ -13,6 +13,10 @@ import { LangConfig } from '../interfaces/lang-config';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class ContactPage implements OnInit {
+  
+  langConfig!: LangConfig;
+  currentLanguage: string = 'eng'; // this could be dynamically set
+  public title!: string;
 
   constructor(
     private langService: LangService,
