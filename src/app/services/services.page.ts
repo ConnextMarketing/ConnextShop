@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -21,7 +21,7 @@ export class ServicesPage implements OnInit {
   
   constructor(
     private langService: LangService,
-    private changeDetectorRef: changeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef 
     ) { }
 
   ngOnInit() {
