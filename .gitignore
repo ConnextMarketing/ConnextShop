@@ -70,3 +70,7 @@ Thumbs.db
 # Environment config
 src/environments/environment.json
 
+
+# amplify
+.amplify
+amplifyconfiguration*
