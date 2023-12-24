@@ -22,10 +22,8 @@ ion-header {
 }
 
 // Tab bar styles - Adjust tab bar styles to make it look more like the desired design
-ion-tab-bar {
-  /*position: fixed; // Fixed position to keep it at the bottom
-  
-  */
+ion-tabs {
+  position: fixed; // Fixed position to keep it at the bottom
   bottom: 0;
   width: 100%;
   background: #000000; // Black color for the tab bar
