@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { IonApp, IonRouterOutlet, IonHeader, IonToolbar, IonButton, IonTitle, IonMenuButton, IonButtons, IonMenu, IonContent, IonList, IonItem } from '@ionic/angular/standalone';
 import { LangService  } from '../services/lang.service';
 import { LangConfig } from '../interfaces/lang-config';
+import { Router } from '@angular/router';
 
 import { addIcons } from 'ionicons';
 import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, bookOutline, bookSharp, briefcaseOutline, buildOutline, codeSlashOutline, codeSlashSharp, colorPaletteOutline, colorPaletteSharp, chatbubblesOutline, chatbubblesSharp, scanCircle, backspace, refreshCircle, closeCircleOutline, addCircleOutline, newspaperOutline } from 'ionicons/icons';
@@ -36,6 +37,10 @@ export class HomePage implements OnInit {
     
     addIcons({ chatbubblesOutline, chatbubblesSharp, colorPaletteOutline, colorPaletteSharp, paperPlaneOutline, bookOutline, bookSharp, briefcaseOutline, codeSlashOutline, codeSlashSharp, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, scanCircle, backspace, refreshCircle, closeCircleOutline, addCircleOutline, newspaperOutline, buildOutline });
     
+  }
+  
+  navigate(route: string): void {
+    this.router.navigateByUrl(route);
   }
 
   ngOnInit() {
