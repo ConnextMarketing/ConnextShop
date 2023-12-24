@@ -28,6 +28,8 @@ ion-tabs {
   width: 100%;
   background: #000000; // Black color for the tab bar
   // Create a pseudo-element to act as the background for the icons
+  
+  ion-tabs-bar {
   &::before {
     content: '';
     position: absolute;
@@ -52,6 +54,7 @@ ion-tabs {
       }
     }
   }
+}
 }
 
 // Adjust the .graphic-container to position the text correctly
