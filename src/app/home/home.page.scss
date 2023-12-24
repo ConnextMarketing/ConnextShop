@@ -1,61 +1,44 @@
 // Define primary color variables
-$color-primary: #your-primary-color; // Replace with the color code from the image
-$color-secondary: #your-secondary-color; 
+$color-primary: #00FF00; // Green color for icons and selected tab text
+$color-secondary: #FFFFFF; // White color for text
 
+// Global styles
 ion-content {
   --background: url('https://s3.amazonaws.com/connext.public.data/wonder_1703375249182.jpg') no-repeat center center / cover;
-  background: url('https://s3.amazonaws.com/connext.public.data/wonder_1703375249182.jpg') no-repeat center center / cover;
+  // Ensure that the content does not overlap with the tabs
+  padding-bottom: 56px; // Adjust this value based on the height of your ion-tab-bar
+}
 
-
-
-
-
-
-  .graphic-container {
+// Header styles - Adjust header styles to make sure it is positioned correctly
+ion-header {
   position: absolute;
-  top: 0; // Adjust as necessary for your design
   width: 100%;
-  padding: 16px;
-  text-align: center;
-
-  h1, p {
-    color: $color-secondary;
-    background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background for legibility
-    display: inline-block;
-    margin: 0 auto;
-  }
-
-  h1 {
-    // Add font styles for the tagline
-  }
-
-  p {
-    // Add font styles for the description
+  top: 0;
+  ion-toolbar {
+    // Transparent background
+    --background: transparent;
+    color: $color-secondary; // White color for the title text
   }
 }
 
-    .central-content {
-      text-align: center;
-      h1 {
-        color: $color-primary;
-        // Add font styles for the tagline
-      }
-      p {
-        color: $color-secondary;
-        // Add font styles for the description
-      }
-      // Additional content styles
-    }
-  }
-
-
-// Tab bar styles
+// Tab bar styles - Adjust tab bar styles to make it look more like the desired design
 ion-tab-bar {
-  position: relative;
-  background: #000000; // Replace with the color for the tab bar
+  position: fixed; // Fixed position to keep it at the bottom
+  bottom: 0;
+  width: 100%;
+  background: #000000; // Black color for the tab bar
+  // Create a pseudo-element to act as the background for the icons
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 20px; // Height of the extended background area
+    background: #000000; // Black color, same as the tab bar
+  }
   ion-tab-button {
     position: relative;
-    top: -10px; // Raise the tabs slightly above the tab bar
     ion-icon {
       color: $color-primary; // Green color for icons
     }
@@ -70,11 +53,33 @@ ion-tab-bar {
     }
   }
 }
-// Header styles
-ion-header {
-  ion-toolbar {
-    // Transparent background
-    --background: transparent;
-    color: $color-secondary; // Replace with the color for the title text
+
+// Adjust the .graphic-container to position the text correctly
+.graphic-container {
+  position: relative;
+  padding: 16px;
+  margin-top: 0; // Remove margin top as header is now absolute
+
+  .top-graphics {
+    height: 250px; // Adjust height accordingly
+    background-position: center;
+  }
+
+  .central-content {
+    position: absolute;
+    top: 20%; // Adjust this value to position the tagline as needed
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    h1 {
+      color: $color-primary; // Green color for the tagline
+      font-size: 2em; // Adjust font size as needed
+    }
+
+    p {
+      color: $color-secondary; // White color for the description
+      font-size: 1em; // Adjust font size as needed
+    }
   }
 }
