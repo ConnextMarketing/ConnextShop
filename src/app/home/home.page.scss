@@ -11,17 +11,28 @@ ion-content {
 
 
 
-  .graphic-container {
-    // Adjust padding and margin as needed
-    padding: 16px;
-    margin-top: 60px; // Space for the header
+  ..graphic-container {
+  position: absolute;
+  top: 0; // Adjust as necessary for your design
+  width: 100%;
+  padding: 16px;
+  text-align: center;
 
-    .top-graphics {
-      // Include styles for the graphics at the top
-      height: 250px; // Adjust height accordingly
-      
-      background-position: center;
-    }
+  h1, p {
+    color: $color-secondary;
+    background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background for legibility
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  h1 {
+    // Add font styles for the tagline
+  }
+
+  p {
+    // Add font styles for the description
+  }
+}
 
     .central-content {
       text-align: center;
@@ -40,35 +51,30 @@ ion-content {
 
 // Tab bar styles
 ion-tab-bar {
+  position: relative;
   background: #000000; // Replace with the color for the tab bar
   ion-tab-button {
-    // Styles for the tab buttons
+    position: relative;
+    top: -10px; // Raise the tabs slightly above the tab bar
     ion-icon {
-      color: #ffffff; // Replace with icon color
+      color: $color-primary; // Green color for icons
     }
     ion-label {
-      color: #ffffff; // Replace with label color
+      color: $color-secondary; // White color for label text
     }
     &.tab-selected {
       ion-icon,
       ion-label {
-        color: $color-primary; // Highlight color for selected tab
+        color: $color-primary; // Green color for selected tab
       }
     }
   }
 }
-
 // Header styles
 ion-header {
   ion-toolbar {
     // Transparent background
     --background: transparent;
-    color: #ffffff; // Replace with the color for the title text
-
-    ion-buttons {
-      ion-menu-button {
-        // Styles for the menu button
-      }
-    }
+    color: $color-secondary; // Replace with the color for the title text
   }
 }
