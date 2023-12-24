@@ -5,7 +5,9 @@ $color-secondary: #your-secondary-color; // Replace with the color code from the
 // Global styles
 ion-content {
   --background-image: url('https://s3.amazonaws.com/connext.public.data/wonder_1703375249182.jpg'); // Replace with your graphic
+  background: url('https://s3.amazonaws.com/connext.public.data/wonder_1703375249182.jpg'); // Replace with your top-graphics
       background-size: cover;
+      -background-image: url('https://s3.amazonaws.com/connext.public.data/wonder_1703375249182.jpg'); // Replace with your graphic
 
   .graphic-container {
     // Adjust padding and margin as needed
