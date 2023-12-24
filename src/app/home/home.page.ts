@@ -32,7 +32,8 @@ export class HomePage implements OnInit {
   
   constructor(
     private langService: LangService,
-    private changeDetectorRef: ChangeDetectorRef 
+    private changeDetectorRef: ChangeDetectorRef,
+    private router: Router
     ) { 
     
     addIcons({ chatbubblesOutline, chatbubblesSharp, colorPaletteOutline, colorPaletteSharp, paperPlaneOutline, bookOutline, bookSharp, briefcaseOutline, codeSlashOutline, codeSlashSharp, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, scanCircle, backspace, refreshCircle, closeCircleOutline, addCircleOutline, newspaperOutline, buildOutline });
