@@ -25,6 +25,7 @@ ion-header {
 ion-tab-bar {
   position: fixed; // Fixed position to keep it at the bottom
   bottom: 0;
+  margin-bottom: -2px;
   width: 100%;
   background: #000000; // Black color for the tab bar
   // Create a pseudo-element to act as the background for the icons
