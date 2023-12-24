@@ -1,0 +1,70 @@
+// Define primary color variables
+$color-primary: #your-primary-color; // Replace with the color code from the image
+$color-secondary: #your-secondary-color; // Replace with the color code from the image
+
+// Global styles
+ion-content {
+  --background: #ffffff; // Replace with the desired background color
+
+  .graphic-container {
+    // Adjust padding and margin as needed
+    padding: 16px;
+    margin-top: 60px; // Space for the header
+
+    .top-graphics {
+      // Include styles for the graphics at the top
+      height: 250px; // Adjust height accordingly
+      background-image: url('/path/to/your/graphic.svg'); // Replace with your graphic
+      background-size: cover;
+      background-position: center;
+    }
+
+    .central-content {
+      text-align: center;
+      h1 {
+        color: $color-primary;
+        // Add font styles for the tagline
+      }
+      p {
+        color: $color-secondary;
+        // Add font styles for the description
+      }
+      // Additional content styles
+    }
+  }
+}
+
+// Tab bar styles
+ion-tab-bar {
+  background: #000000; // Replace with the color for the tab bar
+  ion-tab-button {
+    // Styles for the tab buttons
+    ion-icon {
+      color: #ffffff; // Replace with icon color
+    }
+    ion-label {
+      color: #ffffff; // Replace with label color
+    }
+    &.tab-selected {
+      ion-icon,
+      ion-label {
+        color: $color-primary; // Highlight color for selected tab
+      }
+    }
+  }
+}
+
+// Header styles
+ion-header {
+  ion-toolbar {
+    // Transparent background
+    --background: transparent;
+    color: #ffffff; // Replace with the color for the title text
+
+    ion-buttons {
+      ion-menu-button {
+        // Styles for the menu button
+      }
+    }
+  }
+}
