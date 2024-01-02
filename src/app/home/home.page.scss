@@ -21,12 +21,7 @@ ion-header {
 
 // Tab bar styles - Adjust tab bar styles to make it look more like the desired design
 ion-tabs {
-  position: fixed !important; // Fixed position to keep it at the bottom
-  bottom: 0;
-  width: 100%;
-  background: #000000; // Black color for the tab bar
-  // Create a pseudo-element to act as the background for the icons
-  height: 200px;
+  
   
   
   &::before {
