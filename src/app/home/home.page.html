@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="graphic-container">
+    <!-- Include graphics here for the top part of the design -->
+    <div class="top-graphics">
+      <!-- Replace with your SVGs or images -->
+    </div>
+
+    <div class="central-content">
+      <h1>{{ tagline }}</h1>
+      <p>{{ taglineDescription }}</p>
+      <!-- Additional content -->
+    </div>
+
+    <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="navigate('portfolio')">
+      <ion-icon name="briefcase-outline"></ion-icon>
+      <ion-label>{{ portfolio }}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="navigate('blog')">
+      <ion-icon name="newspaper-outline"></ion-icon>
+      <ion-label>{{ blog }}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="navigate('services')">
+      <ion-icon name="build-outline"></ion-icon>
+      <ion-label>{{ services }}</ion-label>
+    </ion-tab-button>
+    <!-- Repeat for other tabs as needed -->
+  </ion-tab-bar>
+</ion-tabs>
+
+
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "ConnextShop",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
