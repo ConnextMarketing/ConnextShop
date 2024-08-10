@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" style="background: transparent !important;">
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -14,11 +14,9 @@
       <!-- Replace with your SVGs or images -->
     </div>
 
-    <div class="central-content">
-      <h1>{{ tagline }}</h1>
-      <p>{{ taglineDescription }}</p>
-      <!-- Additional content -->
-    </div>
+    <app-node-web class="central-content"></app-node-web>
+
+
 
     <ion-tabs>
   <ion-tab-bar slot="bottom">
