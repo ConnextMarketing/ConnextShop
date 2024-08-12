@@ -1,3 +1,134 @@
-<p>
-  agreement works!
-</p>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Limited Liability Agreement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Allez Marketing LLC DBA Connext Marketing</ion-card-title>
+      <ion-card-subtitle>Limited Liability Agreement</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="agreement-text">
+        <p>
+        This Limited Liability Agreement ("Agreement") is entered into by and
+        between Allez Marketing LLC DBA Connext Marketing ("Connext Marketing,"
+        "we," "us," or "our") and the undersigned user ("Client," "you," or
+        "your") upon receiving services from Connext Marketing. By using our
+        services, you agree to the terms and conditions set forth in this
+        Agreement.
+      </p>
+
+      <h2>1. Authorization to Act on Your Behalf</h2>
+      <p>
+        You hereby authorize Connext Marketing to act on your behalf in
+        purchasing resources necessary to run your website and associated
+        endpoints, including but not limited to software, video servers, cloud
+        hosting, and any other resources required for the operation of your
+        online services ("Resources").
+      </p>
+
+      <h2>2. Transfer of Services</h2>
+      <p>
+        If at any point you wish to discontinue our services and transfer your
+        website or related services to another provider, we agree to assist you
+        in setting up these services elsewhere. This assistance will include
+        providing necessary documentation and support to ensure a smooth
+        transition.
+      </p>
+
+      <h2>3. Content Moderation and Compliance</h2>
+      <p>
+        As long as your services remain under our management and control,
+        Connext Marketing reserves the right to moderate the content on your
+        website and related services. This moderation is to ensure compliance
+        with all applicable local, state, and federal regulations, as well as
+        our own content policies.
+      </p>
+
+      <h2>4. Limitation of Liability</h2>
+      <p>
+        Connext Marketing shall not be liable for any indirect, incidental,
+        special, consequential, or punitive damages, including but not limited
+        to loss of profits, loss of business, or loss of data, arising out of or
+        in connection with the use of our services, even if we have been advised
+        of the possibility of such damages.
+      </p>
+
+      <h2>5. Indemnification</h2>
+      <p>
+        You agree to indemnify, defend, and hold harmless Connext Marketing, its
+        officers, directors, employees, and agents from and against any and all
+        claims, damages, losses, liabilities, costs, and expenses (including
+        reasonable attorney's fees) arising out of or in connection with your
+        use of our services, violation of this Agreement, or infringement of any
+        third-party rights.
+      </p>
+
+      <h2>6. Termination</h2>
+      <p>
+        Either party may terminate this Agreement with written notice. Upon
+        termination, Connext Marketing will assist in transferring your services
+        as outlined in Section 2 of this Agreement.
+      </p>
+
+      <h2>7. Governing Law</h2>
+      <p>
+        This Agreement shall be governed by and construed in accordance with the
+        laws of the State of [Your State], without regard to its conflict of law
+        principles.
+      </p>
+
+      <h2>8. Severability</h2>
+      <p>
+        If any provision of this Agreement is found to be invalid or
+        unenforceable by a court of competent jurisdiction, the remaining
+        provisions shall continue in full force and effect.
+      </p>
+
+      <h2>9. Entire Agreement</h2>
+      <p>
+        This Agreement constitutes the entire understanding between the parties
+        concerning the subject matter hereof and supersedes all prior
+        discussions, agreements, or understandings of any kind.
+      </p>
+
+      <p>By receiving and using the services provided by Connext Marketing, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions of this Agreement.</p>
+      </div>
+      
+<ion-item>
+        <ion-label position="floating">Your Name</ion-label>
+        <ion-input [(ngModel)]="userName" placeholder="Enter your name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-note slot="end">{{ date }}</ion-note>
+      </ion-item>
+
+      <!-- Language and Voice Selection -->
+      <ion-item>
+        <ion-label>Language</ion-label>
+        <ion-select [(ngModel)]="selectedLanguage">
+          <ion-select-option value="en-US">English (US)</ion-select-option>
+          <ion-select-option value="es-ES">Spanish (Spain)</ion-select-option>
+          <!-- Add more language options as needed -->
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Voice</ion-label>
+        <ion-select [(ngModel)]="selectedVoice">
+          <ion-select-option value="Joanna">Joanna (Female)</ion-select-option>
+          <ion-select-option value="Matthew">Matthew (Male)</ion-select-option>
+          <!-- Add more voice options as needed -->
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="full" (click)="readAgreementText()">Read Aloud</ion-button>
+      <ion-button expand="full" (click)="acceptAgreement()">Accept Agreement</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
