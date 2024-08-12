@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
   public signedIn = false;
   
   public appPages!: AppPage[];
+  public logoImage: any = "https://s3.amazonaws.com/connext.public.data/1723427736501.png"
   
   constructor(
     private langService: LangService,
