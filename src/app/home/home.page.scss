@@ -116,3 +116,15 @@ ion-toolbar {
   --background: transparent !important;
   background-color: transparent !important;
 }
+
+ion-header {
+  --ion-background-color: transparent;
+  --ion-background-color-rgb: 0, 0, 0;
+  --ion-background-color-contrast: rgba(0, 0, 0, 0);
+}
+
+ion-toolbar {
+  --ion-background-color: transparent;
+  --ion-background-color-rgb: 0, 0, 0;
+  --ion-background-color-contrast: rgba(0, 0, 0, 0);
+}
