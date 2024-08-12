@@ -119,11 +119,11 @@ ion-item.selected {
 }
 
 ion-menu {
-  --background: transparent !important;
-  --ion-background-color: transparent !important;
+  --background: rgba(0,0,0,0.3) !important;
+  --ion-background-color: rgba(0,0,0,0.3) !important;
   --ion-background-color-rgb: 0, 0, 0;
-  background-color: transparent !important;
-  backdrop-filter: blur(0px);
+  background-color: rgba(0,0,0,0.3) !important;
+  backdrop-filter: blur(10px);
 }
 
 ion-content {
