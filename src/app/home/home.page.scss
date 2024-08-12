@@ -107,3 +107,12 @@ ion-tabs {
   pointer-events: all; /* Enables interaction with app-node-web */
 }
 
+ion-header {
+  --background: transparent !important;
+  background-color: transparent !important;
+}
+
+ion-toolbar {
+  --background: transparent !important;
+  background-color: transparent !important;
+}
