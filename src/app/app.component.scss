@@ -161,29 +161,9 @@ ion-item::part(native) {
   }
 }
 
-.menu-item {
-  opacity: 0;
-  animation: slideInFromRight 0.5s ease-out forwards;
+@for $i from 0 through 9 {
+  .menu-item-#{$i} {
+    animation: slideInFromRight 0.5s ease-out forwards;
+    animation-delay: $i * 0.125s; /* 1/8th of a second delay between each */
+  }
 }
-
-.menu-item:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.menu-item:nth-child(2) {
-  animation-delay: 0.25s; /* 1/8th of a second */
-}
-
-.menu-item:nth-child(3) {
-  animation-delay: 0.50s;
-}
-
-.menu-item:nth-child(4) {
-  animation-delay: 0.75s;
-}
-
-.menu-item:nth-child(5) {
-  animation-delay: 1.0s;
-}
-
-/* Continue this pattern for additional items */
