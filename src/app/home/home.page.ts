@@ -27,7 +27,7 @@ export class HomePage implements OnInit {
   public portfolio!: string;
   public blog!: string;
   public services!: string;
-  public logoImage: any = "https://s3.amazonaws.com/connext.public.data/1723427666386.png"
+  public logoImage: any = "https://s3.amazonaws.com/connext.public.data/1723427736501.png"
 
   langConfig!: LangConfig;
   currentLanguage: string = 'eng'; // this could be dynamically set
