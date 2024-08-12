@@ -117,3 +117,35 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+ion-menu {
+  --background: transparent !important;
+  --ion-background-color: transparent !important;
+  --ion-background-color-rgb: 0, 0, 0;
+  background-color: transparent !important;
+  backdrop-filter: blur(0px);
+}
+
+ion-content {
+  --background: transparent !important;
+  background-color: transparent !important;
+}
+
+ion-list, ion-list-header, ion-note, ion-item, ion-label, ion-icon {
+  --background: transparent !important;
+  --ion-background-color: transparent !important;
+  background-color: transparent !important;
+  color: white; /* Adjust text color as needed */
+}
+
+ion-item {
+  --background-hover: rgba(255, 255, 255, 0.1) !important; /* Adjust hover background for better visibility */
+}
+
+ion-item::part(native) {
+  background: transparent !important;
+}
+
+.selected ion-item {
+  background: rgba(255, 255, 255, 0.2) !important; /* Selected item background */
+}
