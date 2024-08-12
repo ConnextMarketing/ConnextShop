@@ -8,7 +8,13 @@
           </ion-list-header>
           <ion-note>{{ tagline }}</ion-note>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item class="menu-item" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+            <ion-item 
+              [ngClass]="'menu-item-' + i"
+              routerDirection="root" 
+              [routerLink]="[p.url]" 
+              lines="none" 
+              detail="false" 
+              routerLinkActive="selected">
               <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
@@ -17,13 +23,13 @@
         <ion-list id="labels-list">
           <ion-list-header>{{ account }}</ion-list-header>
           <ng-template *ngIf="!signedIn; else elseSignOut">
-            <ion-item lines="none" class="menu-item">
+            <ion-item lines="none" [ngClass]="'menu-item-' + appPages.length">
               <ion-icon aria-hidden="true" slot="start" ios="log-in-outline" md="log-in-sharp"></ion-icon>
               <ion-label>{{ signIn }}</ion-label>
             </ion-item>
           </ng-template>
           <ng-template #elseSignOut>
-            <ion-item lines="none" class="menu-item">
+            <ion-item lines="none" [ngClass]="'menu-item-' + (appPages.length + 1)">
               <ion-icon aria-hidden="true" slot="start" ios="log-out-outline" md="log-out-sharp"></ion-icon>
               <ion-label>{{ signOut }}</ion-label>
             </ion-item>
