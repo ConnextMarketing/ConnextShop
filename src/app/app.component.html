@@ -9,7 +9,7 @@
           <ion-note>{{ tagline }}</ion-note>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item 
-              [ngClass]="'menu-item-' + i"
+              [ngClass]="'menu-item menu-item-' + i"
               routerDirection="root" 
               [routerLink]="[p.url]" 
               lines="none" 
@@ -23,13 +23,13 @@
         <ion-list id="labels-list">
           <ion-list-header>{{ account }}</ion-list-header>
           <ng-template *ngIf="!signedIn; else elseSignOut">
-            <ion-item lines="none" [ngClass]="'menu-item-' + appPages.length">
+            <ion-item lines="none" [ngClass]="'menu-item menu-item-' + appPages.length">
               <ion-icon aria-hidden="true" slot="start" ios="log-in-outline" md="log-in-sharp"></ion-icon>
               <ion-label>{{ signIn }}</ion-label>
             </ion-item>
           </ng-template>
           <ng-template #elseSignOut>
-            <ion-item lines="none" [ngClass]="'menu-item-' + (appPages.length + 1)">
+            <ion-item lines="none" [ngClass]="'menu-item menu-item-' + (appPages.length + 1)">
               <ion-icon aria-hidden="true" slot="start" ios="log-out-outline" md="log-out-sharp"></ion-icon>
               <ion-label>{{ signOut }}</ion-label>
             </ion-item>
