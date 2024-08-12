@@ -18,9 +18,9 @@ export class AgreementComponent {
 
   constructor() {
     AWS.config.update({
-      region: 'us-west-2', // Replace with your AWS region
-      accessKeyId: 'YOUR_ACCESS_KEY', // Replace with your AWS Access Key
-      secretAccessKey: 'YOUR_SECRET_KEY' // Replace with your AWS Secret Key
+      region: 'us-east-1', // Replace with your AWS region
+      accessKeyId: '', // Replace with your AWS Access Key
+      secretAccessKey: '' // Replace with your AWS Secret Key
     });
     this.polly = new AWS.Polly();
   }
