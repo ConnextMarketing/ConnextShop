@@ -7,7 +7,6 @@ import { addIcons } from 'ionicons';
 import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, buildOutline, buildSharp, folderOpenOutline, folderOpenSharp, eyeOutline, eyeSharp, callOutline, callSharp } from 'ionicons/icons';
 import { LangService  } from './services/lang.service';
 import { LangConfig } from './interfaces/lang-config';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { trigger, style, animate, transition, query, stagger } from '@angular/animations';
 interface AppPage {
   title: string;
@@ -20,7 +19,7 @@ interface AppPage {
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule, HttpClientModule, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, BrowserAnimationsModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, HttpClientModule, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet],
   providers: [LangService],
   animations: [
     trigger('listAnimation', [
