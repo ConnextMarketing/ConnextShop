@@ -8,6 +8,7 @@ import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutlin
 import { LangService  } from './services/lang.service';
 import { LangConfig } from './interfaces/lang-config';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { trigger, style, animate, transition, query, stagger } from '@angular/animations';
 interface AppPage {
   title: string;
   url: string;
@@ -20,7 +21,19 @@ interface AppPage {
   styleUrls: ['app.component.scss'],
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule, HttpClientModule, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, BrowserAnimationsModule],
-  providers: [LangService]
+  providers: [LangService],
+  animations: [
+    trigger('listAnimation', [
+      transition(':enter', [
+        query('ion-item', [
+          style({ transform: 'translateX(100%)', opacity: 0 }),
+          stagger(125, [
+            animate('0.5s ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+          ])
+        ])
+      ])
+    ])
+  ]
 })
 export class AppComponent implements OnInit {
   
