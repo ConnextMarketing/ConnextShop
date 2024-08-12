@@ -161,9 +161,14 @@ ion-item::part(native) {
   }
 }
 
+.menu-item {
+  transform: translateX(100%);  /* Start with items off-screen */
+  opacity: 0;  /* Hidden until animation starts */
+  animation: slideInFromRight 0.5s ease-out forwards;
+}
+
 @for $i from 0 through 9 {
   .menu-item-#{$i} {
-    animation: slideInFromRight 0.5s ease-out forwards;
-    animation-delay: $i * 0.125s; /* 1/8th of a second delay between each */
+    animation-delay: $i * 0.125s; /* Stagger animation start */
   }
 }
