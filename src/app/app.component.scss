@@ -1,3 +1,11 @@
+ion-menu {
+  --background: rgba(0, 0, 0, 0.3) !important;
+  --ion-background-color: rgba(0, 0, 0, 0.3) !important;
+  --ion-background-color-rgb: 0, 0, 0;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(5px);
+}
+
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
@@ -29,17 +37,13 @@ ion-menu.md ion-list#inbox-list {
 ion-menu.md ion-list#inbox-list ion-list-header {
   font-size: 22px;
   font-weight: 600;
-
   min-height: 20px;
 }
 
 ion-menu.md ion-list#labels-list ion-list-header {
   font-size: 16px;
-
   margin-bottom: 18px;
-
   color: #757575;
-
   min-height: 26px;
 }
 
@@ -110,20 +114,11 @@ ion-menu.ios ion-note {
 ion-note {
   display: inline-block;
   font-size: 16px;
-
   color: var(--ion-color-medium-shade);
 }
 
 ion-item.selected {
   --color: var(--ion-color-primary);
-}
-
-ion-menu {
-  --background: rgba(0,0,0,0.3) !important;
-  --ion-background-color: rgba(0,0,0,0.3) !important;
-  --ion-background-color-rgb: 0, 0, 0;
-  background-color: rgba(0,0,0,0.3) !important;
-  backdrop-filter: blur(5px);
 }
 
 ion-content {
@@ -150,6 +145,7 @@ ion-item::part(native) {
   background: rgba(255, 255, 255, 0.2) !important; /* Selected item background */
 }
 
+/* Keyframes for menu item animation */
 @keyframes slideInFromRight {
   0% {
     transform: translateX(100%);
@@ -167,8 +163,36 @@ ion-item::part(native) {
   animation: slideInFromRight 0.5s ease-out forwards;
 }
 
+/* Stagger animation for menu items */
 @for $i from 0 through 9 {
   .menu-item-#{$i} {
     animation-delay: $i * 0.125s; /* Stagger animation start */
   }
+}
+
+/* Styling the icons with circular backgrounds */
+ion-item ion-icon {
+  --color: #fff; /* Icon color */
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+ion-item ion-icon:nth-child(odd) {
+  background-color: #28a745; /* Green */
+}
+
+ion-item ion-icon:nth-child(even) {
+  background-color: #007bff; /* Blue */
+}
+
+ion-item:hover ion-icon {
+  transform: scale(1.1); /* Slight zoom on hover */
 }
