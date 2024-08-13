@@ -175,7 +175,7 @@ $green-color: #28a745; /* Green from the logo */
 $blue-color: #007bff; /* Blue from the logo */
 
 ion-item ion-icon {
-  --color: #fff; /* Icon color */
+  --color: $green-color; /* Icon color */
   font-size: 16px; /* Smaller icon size */
   width: 36px; /* Circular container */
   height: 36px;
@@ -190,6 +190,7 @@ ion-item ion-icon {
 
 ion-item:nth-child(even) ion-icon {
   background-color: $blue-color; /* Alternate to blue */
+  --color: $blue-color;
 }
 
 ion-item:hover ion-icon {
