@@ -188,7 +188,13 @@ ion-item ion-icon {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+ion-item:nth-child(odd) ion-icon {
+  color: $green-color; /* Green */
+}
 
+ion-item:nth-child(even) ion-icon {
+  color: $blue-color; /* Blue */
+}
 
 ion-item:hover ion-icon {
   transform: scale(1.1); /* Slight zoom on hover */
