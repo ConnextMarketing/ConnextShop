@@ -1,3 +1,4 @@
+/* General Menu Styles */
 ion-menu {
   --background: rgba(0, 0, 0, 0.3) !important;
   --ion-background-color: rgba(0, 0, 0, 0.3) !important;
@@ -17,6 +18,7 @@ ion-menu.md ion-content {
   --padding-bottom: 20px;
 }
 
+/* List Styles */
 ion-menu.md ion-list {
   padding: 20px 0;
 }
@@ -47,6 +49,7 @@ ion-menu.md ion-list#labels-list ion-list-header {
   min-height: 26px;
 }
 
+/* Item Styles */
 ion-menu.md ion-item {
   --padding-start: 10px;
   --padding-end: 10px;
@@ -61,14 +64,11 @@ ion-menu.md ion-item.selected ion-icon {
   color: var(--ion-color-primary);
 }
 
-ion-menu.md ion-item ion-icon {
-  color: #616e7e;
-}
-
 ion-menu.md ion-item ion-label {
   font-weight: 500;
 }
 
+/* iOS specific styles */
 ion-menu.ios ion-content {
   --padding-bottom: 20px;
 }
@@ -93,7 +93,7 @@ ion-menu.ios ion-item.selected ion-icon {
 }
 
 ion-menu.ios ion-item ion-icon {
-  font-size: 24px;
+  font-size: 20px;
   color: #73849a;
 }
 
@@ -170,28 +170,26 @@ ion-item::part(native) {
   }
 }
 
+/* Icon Styles */
 $green-color: #28a745; /* Green from the logo */
 $blue-color: #007bff; /* Blue from the logo */
 
 ion-item ion-icon {
   --color: #fff; /* Icon color */
-  font-size: 20px; /* Smaller icon size */
-  width: 40px; /* Circular container */
-  height: 40px;
+  font-size: 16px; /* Smaller icon size */
+  width: 36px; /* Circular container */
+  height: 36px;
   border-radius: 50%;
   padding: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: $green-color; /* Default to green */
 }
 
-.icon-green {
-  background-color: $green-color;
-}
-
-.icon-blue {
-  background-color: $blue-color;
+ion-item:nth-child(even) ion-icon {
+  background-color: $blue-color; /* Alternate to blue */
 }
 
 ion-item:hover ion-icon {
