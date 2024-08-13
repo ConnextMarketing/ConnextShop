@@ -170,27 +170,30 @@ ion-item::part(native) {
   }
 }
 
-/* Styling the icons with circular backgrounds */
+/* Corrected circular icons with alternating colors */
+$green-color: #28a745; /* Green from the logo */
+$blue-color: #007bff; /* Blue from the logo */
+
 ion-item ion-icon {
   --color: #fff; /* Icon color */
-  font-size: 24px;
-  width: 48px;
-  height: 48px;
+  font-size: 20px; /* Smaller icon size */
+  width: 40px; /* Smaller circular container */
+  height: 40px;
   background-color: transparent;
   border-radius: 50%;
-  padding: 10px;
+  padding: 8px; /* Adjusted padding to fit the smaller size */
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-ion-item ion-icon:nth-child(odd) {
-  background-color: #28a745; /* Green */
+ion-item:nth-child(odd) ion-icon {
+  background-color: $green-color; /* Green */
 }
 
-ion-item ion-icon:nth-child(even) {
-  background-color: #007bff; /* Blue */
+ion-item:nth-child(even) ion-icon {
+  background-color: $blue-color; /* Blue */
 }
 
 ion-item:hover ion-icon {
