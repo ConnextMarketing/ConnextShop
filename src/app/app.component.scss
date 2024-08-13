@@ -1,3 +1,9 @@
+
+/* Icon Styles */
+$green-color: #28a745; /* Green from the logo */
+$blue-color: #007bff; /* Blue from the logo */
+
+
 /* General Menu Styles */
 ion-menu {
   --background: rgba(0, 0, 0, 0.3) !important;
@@ -130,7 +136,7 @@ ion-list, ion-list-header, ion-note, ion-item, ion-label, ion-icon {
   --background: transparent !important;
   --ion-background-color: transparent !important;
   background-color: transparent !important;
-  color: white; /* Adjust text color as needed */
+  color: $green-color; /* Adjust text color as needed */
 }
 
 ion-item {
@@ -170,12 +176,10 @@ ion-item::part(native) {
   }
 }
 
-/* Icon Styles */
-$green-color: #28a745; /* Green from the logo */
-$blue-color: #007bff; /* Blue from the logo */
 
 ion-item ion-icon {
   --color: $green-color; /* Icon color */
+  color: $green-color;
   font-size: 16px; /* Smaller icon size */
   width: 36px; /* Circular container */
   height: 36px;
@@ -191,6 +195,7 @@ ion-item ion-icon {
 ion-item:nth-child(even) ion-icon {
   background-color: $blue-color; /* Alternate to blue */
   --color: $blue-color;
+  color: $blue-color;
 }
 
 ion-item:hover ion-icon {
