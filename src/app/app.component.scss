@@ -189,13 +189,11 @@ ion-item ion-icon {
 }
 
 ion-item:nth-child(odd) ion-icon {
-  color: $green-color; /* Green */
-  background-color: $green-color;
-  --ion-background-color: $green-color;
+  background-color: $green-color; /* Green */
 }
 
 ion-item:nth-child(even) ion-icon {
-  color: $blue-color; /* Blue */
+  background-color: $blue-color; /* Blue */
 }
 
 ion-item:hover ion-icon {
