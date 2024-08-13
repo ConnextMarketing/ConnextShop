@@ -15,7 +15,12 @@
               lines="none" 
               detail="false" 
               routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-icon aria-hidden="true" 
+                        slot="start" 
+                        [ios]="p.icon + '-outline'" 
+                        [md]="p.icon + '-sharp'" 
+                        [ngClass]="{'icon-green': i % 2 === 0, 'icon-blue': i % 2 !== 0}">
+              </ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
@@ -24,13 +29,23 @@
           <ion-list-header>{{ account }}</ion-list-header>
           <ng-template *ngIf="!signedIn; else elseSignOut">
             <ion-item lines="none" [ngClass]="'menu-item menu-item-' + appPages.length">
-              <ion-icon aria-hidden="true" slot="start" ios="log-in-outline" md="log-in-sharp"></ion-icon>
+              <ion-icon aria-hidden="true" 
+                        slot="start" 
+                        ios="log-in-outline" 
+                        md="log-in-sharp" 
+                        class="icon-green">
+              </ion-icon>
               <ion-label>{{ signIn }}</ion-label>
             </ion-item>
           </ng-template>
           <ng-template #elseSignOut>
             <ion-item lines="none" [ngClass]="'menu-item menu-item-' + (appPages.length + 1)">
-              <ion-icon aria-hidden="true" slot="start" ios="log-out-outline" md="log-out-sharp"></ion-icon>
+              <ion-icon aria-hidden="true" 
+                        slot="start" 
+                        ios="log-out-outline" 
+                        md="log-out-sharp" 
+                        class="icon-blue">
+              </ion-icon>
               <ion-label>{{ signOut }}</ion-label>
             </ion-item>
           </ng-template>
