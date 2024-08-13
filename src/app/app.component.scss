@@ -199,3 +199,31 @@ ion-item:nth-child(even) ion-icon {
 ion-item:hover ion-icon {
   transform: scale(1.1); /* Slight zoom on hover */
 }
+
+$green-color: #28a745; /* Green from the logo */
+$blue-color: #007bff; /* Blue from the logo */
+
+ion-item ion-icon {
+  --color: #fff; /* Icon color */
+  font-size: 20px; /* Smaller icon size */
+  width: 40px; /* Circular container */
+  height: 40px;
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.icon-green {
+  background-color: $green-color;
+}
+
+.icon-blue {
+  background-color: $blue-color;
+}
+
+ion-item:hover ion-icon {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
