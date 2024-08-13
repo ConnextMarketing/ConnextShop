@@ -190,6 +190,8 @@ ion-item ion-icon {
 
 ion-item:nth-child(odd) ion-icon {
   color: $green-color; /* Green */
+  background-color: $green-color;
+  --ion-background-color: $green-color;
 }
 
 ion-item:nth-child(even) ion-icon {
