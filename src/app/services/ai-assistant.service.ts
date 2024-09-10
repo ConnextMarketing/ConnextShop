@@ -1,184 +1,133 @@
-
-
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import Dexie, { Table } from 'dexie';
+import OpenAI from 'openai';
+
+interface Message {
+  id: number; // UNIX timestamp
+  role: 'user' | 'system';
+  content: string | null;
+}
+
+interface Topic {
+  term: string; // The unique id and primary key
+  relatedMessages: number[]; // List of UNIX timestamps from messages
+}
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AiAssistantService {
-
-  private openAiApiUrl = 'https://api.openai.com/v1/chat/completions';
-  private awsBedrockApiUrl = 'https://bedrock.amazonaws.com/v1/models/claude3/invocations';
-  private sentimentAnalysisUrl = 'https://api.example.com/sentiment'; // Replace with actual sentiment analysis API
-  private crmApiUrl = 'https://crm.example.com/customer-data'; // Replace with actual CRM API
-  private maxTokens = 4096; // Adjust according to the specific model's token limit
+export class AiAssistantService extends Dexie {
+  messages!: Table<Message, number>;
+  topics!: Table<Topic, string>;
+  op = {
+    organization: 'org-',
+    project: 'proj_',
+  }
+  private openai: OpenAI;
   private reservedTokens = 300;
 
-  constructor(private http: HttpClient) {}
+  constructor() {
+    super('AiAssistantDatabase');
 
-  getOpenAiResponse(prompt: string, imageData?: Blob): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer YOUR_OPENAI_API_KEY`
+    this.version(1).stores({
+      messages: '++id, role, content',
+      topics: 'term, relatedMessages',
     });
 
-    const formData = new FormData();
-    formData.append('model', 'gpt-4');
-    formData.append('messages', JSON.stringify(this.buildMessageHistory(prompt)));
-    if (imageData) {
-      formData.append('image', imageData, 'screenshot.png');
-    }
+    this.openai = new OpenAI({
+      organization: this.op["organization"],
+      project: this.op["project"],
+    });
 
-    return this.http.post(this.openAiApiUrl, formData, { headers });
+    // Ensure tables are initialized
+    this.messages = this.table('messages');
+    this.topics = this.table('topics');
   }
 
-  getAwsBedrockResponse(prompt: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer YOUR_AWS_BEDROCK_API_KEY`
-    });
-
-    const body = {
-      inputText: prompt,
-      modelParameters: {
-        maxTokens: this.maxTokens - this.reservedTokens,
-        temperature: 0.7
-      }
+  // Calculate max tokens considering the context size
+  private calculateMaxTokens(modelName: string, contextSize: number): number {
+    const modelMaxTokens: { [key: string]: number } = {
+      'gpt-3.5-turbo': 4096,
+      'gpt-3.5-turbo-16k': 16384,
+      'gpt-4': 8192,
+      'gpt-4-32k': 32768,
+      'gpt-4-turbo': 128000,
     };
 
-    return this.http.post(this.awsBedrockApiUrl, body, { headers: headers });
+    const maxTokens = modelMaxTokens[modelName] || 4096;
+    const completionTokens = 4096;
+
+    // Adjust contextSize if too large
+    const adjustedContextSize = Math.min(contextSize, maxTokens - completionTokens);
+
+    return Math.min(maxTokens - adjustedContextSize, completionTokens) - this.reservedTokens;
   }
 
-  getSentimentAnalysis(text: string): Observable<any> {
-    const body = { text };
-    return this.http.post(this.sentimentAnalysisUrl, body);
-  }
+  // Method to handle large context by splitting and concatenating responses
+  async getFullResponse(prompt: string, modelName: string = 'gpt-4-turbo'): Promise<any> {
+    const context = await this.buildMessageHistory(prompt);
+    const contextSize = context.reduce((acc, msg) => acc + (msg.content?.length || 0), 0);
+    const maxTokens = this.calculateMaxTokens(modelName, contextSize);
 
-  getCustomerData(customerId: string): Observable<any> {
-    return this.http.get(`${this.crmApiUrl}/${customerId}`);
-  }
+    let fullResponse = '';
+    let parts: string[] = [];
 
-  callApis(prompt: string, customerId: string): void {
-    this.getSentimentAnalysis(prompt).subscribe(sentiment => {
-      const sentimentScore = sentiment.score;
+    let response = await this.getResponseChunk(context, modelName, maxTokens);
+    while (response) {
+      parts.push(response);
+      fullResponse += response;
 
-      if (this.checkForPastReferences(prompt)) {
-        const pastConversations = this.retrieveRelevantConversations(prompt);
-        const updatedPrompt = this.addPastConversationsToContext(prompt, pastConversations);
-        this.processApiCalls(updatedPrompt, customerId, sentimentScore);
-      } else {
-        this.processApiCalls(prompt, customerId, sentimentScore);
-      }
-    });
-  }
-
-  processApiCalls(prompt: string, customerId: string, sentimentScore: number): void {
-    this.getCustomerData(customerId).subscribe(customerData => {
-      const personalizedPrompt = this.addPersonalization(prompt, customerData);
-
-      this.getOpenAiResponse(personalizedPrompt).subscribe(response => {
-        this.handleApiResponse('OpenAI', response, sentimentScore);
-      });
-
-      this.getAwsBedrockResponse(personalizedPrompt).subscribe(response => {
-        this.handleApiResponse('AWS Bedrock', response, sentimentScore);
-      });
-    });
-  }
-
-  handleApiResponse(source: string, response: any, sentimentScore: number): void {
-    const messageContent = source === 'OpenAI' ? response.choices[0].message.content : response.completion;
-
-    this.updateConversationContext('Assistant', messageContent);
-
-    if (sentimentScore < 0.5) {
-      this.escalateToHumanAgent(messageContent);
-    } else {
-      console.log(`${source} Response:`, messageContent);
+      context.push({ role: 'system', content: response });
+      const newContextSize = context.reduce((acc, msg) => acc + (msg.content?.length || 0), 0);
+      const remainingTokens = this.calculateMaxTokens(modelName, newContextSize);
+      response = remainingTokens > 0 ? await this.getResponseChunk(context, modelName, remainingTokens) : null;
     }
 
-    this.logInteraction(source, messageContent, sentimentScore);
+    return this.formatResponse(fullResponse, parts);
   }
 
-  addPersonalization(prompt: string, customerData: any): string {
-    const personalizedMessage = `Hello ${customerData.name}, based on your recent interactions, here’s what we have for you: `;
-    return `${personalizedMessage}\n${prompt}`;
+  // Helper method to get a single chunk of response
+  private async getResponseChunk(context: any[], modelName: string, maxTokens: number): Promise<string | null> {
+    try {
+      const response = await this.openai.chat.completions.create({
+        model: modelName,
+        messages: context,
+        max_tokens: maxTokens,
+        temperature: 0.7,
+      });
+
+      return response.choices[0]?.message?.content || null;
+    } catch (error) {
+      console.error('Error fetching response chunk:', error);
+      return null;
+    }
   }
 
-  logInteraction(source: string, content: string, sentimentScore: number): void {
-    const interactionLog = {
-      source,
-      content,
-      sentimentScore,
-      timestamp: new Date().toISOString()
+  // Format the full response in different formats
+  private formatResponse(fullResponse: string, parts: string[]): any {
+    return {
+      plainText: fullResponse,
+      json: { parts: parts.map((part, index) => ({ partNumber: index + 1, content: part })) },
+      html: this.convertToHtml(parts),
     };
-    // Add logic to store this interaction in a database or analytics platform
   }
 
-  escalateToHumanAgent(content: string): void {
-    console.log('Escalating to a human agent due to low sentiment score:', content);
-    // Implement escalation logic, e.g., send to live chat agent
+  // Convert parts to HTML format
+  private convertToHtml(parts: string[]): string {
+    return parts.map(part => `<p>${part}</p>`).join('');
   }
 
-  checkForPastReferences(prompt: string): boolean {
-    return /remember|specific topic/.test(prompt.toLowerCase());
-  }
+  // Asynchronous message history builder
+  async buildMessageHistory(prompt: string): Promise<any[]> {
+    const history: any[] = [];
 
-  retrieveRelevantConversations(prompt: string): any[] {
-    const storedConversations = this.loadConversationHistory();
-    const relevantConversations = storedConversations.filter(convo => convo.content.includes(prompt));
-    return relevantConversations;
-  }
-
-  addPastConversationsToContext(prompt: string, pastConversations: any[]): string {
-    let updatedPrompt = prompt;
-    pastConversations.forEach(convo => {
-      const timestamp = new Date(parseInt(convo.timestamp, 10)).toLocaleString();
-      updatedPrompt += `\n\n(Note: The following message was from a past conversation on ${timestamp}): ${convo.content}`;
+    await this.messages.each((message) => {
+      if (message.content) {
+        history.push({ role: message.role, content: message.content });
+      }
     });
-    return updatedPrompt;
-  }
 
-  buildMessageHistory(prompt: string): any[] {
-    const history = this.loadConversationHistory();
     history.push({ role: 'user', content: prompt });
-    return history.map(entry => ({
-      role: entry.role,
-      content: entry.content
-    }));
-  }
-
-  loadConversationHistory(): any[] {
-    const history = localStorage.getItem('conversationHistory');
-    return history ? JSON.parse(history) : [];
-  }
-
-  updateConversationContext(role: string, message: string): void {
-    const history = this.loadConversationHistory();
-    const timestamp = Date.now().toString();
-    history.push({ role, content: message, timestamp });
-    
-    while (this.calculateTokenCount(history) > this.maxTokens - this.reservedTokens) {
-      history.shift(); // Remove the oldest messages if over the limit
-    }
-    
-    localStorage.setItem('conversationHistory', JSON.stringify(history));
-  }
-
-  calculateTokenCount(messages: any[]): number {
-    return messages.reduce((count, message) => count + this.tokenize(message.content), 0);
-  }
-
-  tokenize(text: string): number {
-    return text.split(' ').length;
-  }
-
-  loadConversationContext(): void {
-    const summary = localStorage.getItem('conversationSummary');
-    const facts = localStorage.getItem('importantFacts');
-    console.log('Loaded summary:', summary);
-    console.log('Loaded important facts:', facts);
+    return history;
   }
 }
